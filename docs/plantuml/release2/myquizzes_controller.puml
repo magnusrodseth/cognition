@@ -1,0 +1,19 @@
+@startuml
+
+MyQuizzesController -> QuizController: handleUpdateQuiz() || handleCreateQuiz()
+note left
+Clicking on either "Update quiz" or
+"Create Quiz" takes the user to QuizController,
+dynamically rendered based on which action
+is performed.
+end note
+MyQuizzesController -> MyQuizzesController: handleDeleteQuiz()
+note left
+Deleting a quiz rerenders the same view
+end note
+MyQuizzesController -> ViewQuizController: handleStartQuiz()
+note left
+Clicking on "Start quiz" takes the user to ViewQuizController
+end note
+
+@enduml

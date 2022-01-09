@@ -1,0 +1,44 @@
+@startuml
+class CogntionController{
+- final CogntionService cogntionService
+--
++ getCogntionStorage()
++ setCognitionStorage()
+..
+GET Requests
++ getUsers(): ("/users")
++ getUserByUsername(): ("/users/{username}")
++ getQuizzesByUsername(): ("/quizzes/{username}")
++ getQuizTitlesByUsername(): ("/quizzes/{username}/titles")
++ getQuizByUuid(): ("/quiz/{uuid}")
+..
+PUT Requests
++ updateQuizByUuid: ("/quiz")
++ updateUser(): ("/users")
+..
+POST Requests
++ createQuiz():("/quiz/{username}")
++ createUser(): ("/users")
+..
+DELETE Requests
++ deleteQuizByUuid(): ("/quiz/{uuid}")
++ deleteUser(): ("/users/{username}")
+}
+
+class CognitionService{
+- CognitionStorage cognitionStorage
++ getCognitionStorage()
++ setCogntionStorage()
+}
+
+class RestApplication{
+- {static} int PORT
+- {static} boolean testMode
++ {static} main()
++ setTestMode()
++ isTestMode()
+}
+
+RestApplication ..> CogntionController: <<Framework connection>>
+CogntionController --> CognitionService
+@enduml

@@ -1,0 +1,14 @@
+[source,http,options="nowrap"]
+----
+POST /quiz/test-username HTTP/1.1
+Content-Type: application/json
+Content-Length: 151
+Host: localhost:8080
+
+{
+  "uuid" : "9f6c96cc-6a70-46bc-8f69-31b2ebd661cd",
+  "name" : "Test quiz",
+  "description" : "Test description for test quiz",
+  "flashcards" : [ ]
+}
+----

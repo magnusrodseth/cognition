@@ -1,0 +1,7 @@
+[source,http,options="nowrap"]
+----
+GET /users/test-username HTTP/1.1
+Content-Type: application/json
+Host: localhost:8080
+
+----

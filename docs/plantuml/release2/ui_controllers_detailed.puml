@@ -1,0 +1,105 @@
+@startuml
+
+' ***** Controller class *****
+abstract class Controller
+
+Controller : Controller()
+Controller : Controller(...)
+Controller : getStage(...)
+Controller : getLoader(String fxml)
+Controller : switchScene(...)
+Controller : changeToView(...)
+Controller : getCognitionStorage()
+Controller : setCognitionStorage(...)
+
+' ***** LoggedInController class *****
+abstract class LoggedInController
+
+LoggedInController : LoggedInController(...)
+LoggedInController : getUser()
+LoggedInController : setUser(...)
+LoggedInController : handleLogout()
+LoggedInController : handleDashboard()
+LoggedInController : handleMyQuizzes()
+LoggedInController : handleCreateQuiz()
+
+' ***** RegisterController class *****
+class RegisterController
+
+RegisterController : RegisterController(...)
+RegisterController : handleRegister()
+RegisterController : isValidRegister(...)
+RegisterController : registerUser(...)
+RegisterController : goToLogin(...)
+RegisterController : getFeedbackErrorMessage()
+RegisterController : getFeedbackSuccessMessage(...)
+RegisterController : setFeedbackErrorMode(...)
+RegisterController : initialize()
+
+' ***** LoginController class *****
+class LoginController
+
+LoginController : LoginController(...)
+LoginController : handleLogin(...)
+LoginController : isValidLogin(...)
+LoginController : goToDashboard(...)
+LoginController : goToRegister(...)
+LoginController : getFeedbackErrorMessage()
+
+
+' ***** DashboardController class *****
+class DashboardController
+
+DashboardController : DashboardController(...)
+DashboardController : initialize()
+
+' ***** MyQuizzesController class *****
+class MyQuizzesController
+
+MyQuizzesController : MyQuizzesController(...)
+MyQuizzesController : initialize()
+MyQuizzesController : setupListView()
+MyQuizzesController : getQuizzes(...)
+MyQuizzesController : handleStartQuiz(...)
+MyQuizzesController : handleUpdateQuiz(...)
+MyQuizzesController : handleDeleteQuiz(...)
+MyQuizzesController : getFeedbackErrorMessage()
+MyQuizzesController : getListView()
+
+' ***** QuizController class *****
+class QuizController
+
+QuizController : QuizController(...)
+QuizController : initialize()
+QuizController : getQuiz()
+QuizController : setQuiz(...)
+QuizController : removeFlashcardNode(...)
+QuizController : getFeedbackErrorMessage()
+QuizController : getFeedbackSuccessMessage()
+QuizController : getFlashcardPaneContainer()
+QuizController : updateFlashcardNodes()
+QuizController : addFlashcardNode(...)
+QuizController : createFlashcardNode(...)
+QuizController : handleStoreQuiz(...)
+QuizController : getFlashcards()
+
+' ***** ViewQuizController class *****
+class ViewQuizController
+
+ViewQuizController : ViewQuizController(...)
+ViewQuizController : initialize()
+ViewQuizController : nextFlashcard()
+ViewQuizController : checkAnswer()
+ViewQuizController : setFeedbackErrorMode()
+ViewQuizController : setQuiz(...)
+
+' ***** Relationships *****
+Controller <|-- LoggedInController
+Controller <|-- RegisterController
+Controller <|-- LoginController
+LoggedInController <|-- DashboardController
+LoggedInController <|-- MyQuizzesController
+LoggedInController <|-- QuizController
+LoggedInController <|-- ViewQuizController
+
+@enduml

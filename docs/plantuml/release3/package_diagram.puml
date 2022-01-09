@@ -1,0 +1,42 @@
+@startuml
+
+note top of UI: Modules are named in uppercase (e.g. UI)
+note top of UI : Packages are named in lowercase (e.g. ui)
+
+component UI {
+  package ui {
+  }
+}
+
+[JavaFX]
+
+component CORE {
+  package core {
+  }
+
+  package json {
+  }
+}
+
+
+component API {
+    package api {
+    }
+}
+
+[FontAwesomeFX]
+[Gson]
+[SpringBoot]
+
+UI ..> JavaFX
+UI ..> FontAwesomeFX
+UI ..> core
+UI ..> Gson
+
+api ..> json
+api ..> core
+api ..> SpringBoot
+
+CORE ..> Gson
+
+@enduml

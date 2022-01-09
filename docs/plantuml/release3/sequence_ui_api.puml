@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+ui.QuizController -> ui.QuizController : handleStoreQuiz(...)
+note left : Create quiz with flashcards
+
+ui.QuizController -> ui.QuizController : user.addQuiz(quiz)
+note left : Add quiz to user's quizzes
+
+ui.QuizController -> ui.RemoteCognitionAccess : remoteCognitionAccess.update(user)
+note left : Update user using REST API accessor
+
+ui.RemoteCognitionAccess -> api.CognitionController : PUT http://localhost:8080/users
+
+api.CognitionController -> core.CognitionStorage : cognitionStorage.update(user.getUsername(), user)
+note right : Update user in local storage
+
+alt User was successfully updated
+
+    core.CognitionStorage -> api.CognitionController
+    api.CognitionController -> ui.RemoteCognitionAccess
+    ui.RemoteCognitionAccess -> ui.QuizController
+
+else UserNotFoundException
+
+    core.CognitionStorage -> api.CognitionController : IOException
+    api.CognitionController -> ui.RemoteCognitionAccess : UserNotFoundException
+
+end
+
+ui.QuizController -> ui.QuizController : Update view on state change. \n Give user corresponding feedback.
+
+@enduml

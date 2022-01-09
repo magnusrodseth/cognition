@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/es/class-diagram
+
+class Flashcard{
+A single Flashcard in a collection of 
+flashcards, corresponding to a given Quiz.
+}
+class Quiz{
+Quiz object that stores a name, 
+a description and a list of flashcards.
+}
+class User{
+Responsible for handling users.
+}
+class Tools{
+Has static helper functions
+}
+
+class CognitionStorage{
+ CRUD - Create, Read, Update and Delete -
+ operations for all local storage.
+
+}
+
+class CompactQuiz{
+CompactQuiz is a class that acts like a 
+struct used as a "lighter" version of a 
+Quiz object. When fetching all quizzes 
+for the current user, we only need to 
+display the quiz titles and keep track 
+of the corresponding identifier,in order 
+to not fetch an unnecessary amount of 
+data at once. Thus, we first fetch a 
+CompactQuiz, and then later fetch a 
+complete Quiz on-demand.
+ 
+}
+
+User ||-o{ Quiz
+Quiz ||-|{ Flashcard
+
+Tools <-- Quiz
+Tools <-- Flashcard
+
+CompactQuiz -> Tools
+
+CognitionStorage ..> User: <<Stores User objects in local storage>>
+@enduml

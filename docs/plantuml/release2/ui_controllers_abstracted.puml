@@ -1,0 +1,53 @@
+@startuml
+
+' ***** Controller class *****
+abstract class Controller
+
+Controller : Has common functionality for all\npresentation layer controllers.
+
+' ***** LoggedInController class *****
+abstract class LoggedInController
+
+LoggedInController : Holds state of the application\nwhen user is logged in.
+
+' ***** RegisterController class *****
+class RegisterController
+
+RegisterController : Handles the presentation logic\nwhen registering a user.
+
+' ***** LoginController class *****
+class LoginController
+
+LoginController : Handles the presentation logic when\nlogging into the application.
+
+
+' ***** DashboardController class *****
+class DashboardController
+
+DashboardController : Handles the presentation logic\nfor the Dashboard view.
+
+' ***** MyQuizzesController class *****
+class MyQuizzesController
+
+MyQuizzesController : Handles the presentation logic when\ndisplaying a user's personal quizzes.
+
+' ***** QuizController class *****
+class QuizController
+
+QuizController : Handles the presentation logic of\ncreating and updating a quiz.
+
+' ***** ViewQuizController class *****
+class ViewQuizController
+
+ViewQuizController : Handles the presentation logic\nof going through a quiz.
+
+' ***** Relationships *****
+Controller <|-- LoggedInController
+Controller <|-- RegisterController
+Controller <|-- LoginController
+LoggedInController <|-- DashboardController
+LoggedInController <|-- MyQuizzesController
+LoggedInController <|-- QuizController
+LoggedInController <|-- ViewQuizController
+
+@enduml

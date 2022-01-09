@@ -1,0 +1,37 @@
+@startuml
+title REST Cognition
+
+
+frame {
+    
+    frame REST_CLIENT{
+        
+        node "Presentation layer (fxml)" as ui
+        node "Data access layer" as dal
+        
+    }
+    frame REST_SERVER{
+        frame API{
+node "Service layer (rest api)" as rapi
+} 
+frame Application {
+        node "Logic layer (core)" as lc
+        node "Persistence layer (json)" as js
+    }
+}
+    
+
+}
+
+ui -->> dal
+dal -->> ui
+
+rapi -->> lc
+lc -->> rapi
+lc -->> js
+js -->> lc
+
+
+REST_SERVER -->> REST_CLIENT
+REST_CLIENT -->> REST_SERVER
+@enduml

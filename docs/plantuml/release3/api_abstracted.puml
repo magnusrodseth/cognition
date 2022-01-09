@@ -1,0 +1,18 @@
+@startuml
+class CognitionController{
+Controls the REST API logic, implementing persistent 
+local storage via {@link api.CognitionService}.
+}
+
+class CognitionService{
+Handles the service layer of the REST API, 
+with the business logic of the application.
+}
+
+class RestApplication{
+Starts the Spring Boot application.
+}
+
+RestApplication ..> CognitionController: <<Framework connection>>
+CognitionController --> CognitionService
+@enduml

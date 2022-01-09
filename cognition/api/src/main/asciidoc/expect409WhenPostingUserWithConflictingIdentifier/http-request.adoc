@@ -1,0 +1,13 @@
+[source,http,options="nowrap"]
+----
+POST /users HTTP/1.1
+Content-Type: application/json
+Content-Length: 86
+Host: localhost:8080
+
+{
+  "quizzes" : [ ],
+  "username" : "test-username",
+  "password" : "valid-password"
+}
+----

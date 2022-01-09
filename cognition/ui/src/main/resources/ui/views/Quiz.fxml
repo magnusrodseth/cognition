@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<AnchorPane prefHeight="745.0" prefWidth="922.0" style="-fx-background-color: #FCB751;" stylesheets="@../../styles/quiz.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="pageId" alignment="CENTER" prefHeight="27.0" prefWidth="485.0" text="Quiz" visible="false" />
+    <VBox prefHeight="745.0" prefWidth="922.0">
+        <children>
+            <!-- Navigation bar -->
+            <HBox alignment="CENTER" prefHeight="56.0" prefWidth="600.0" style="-fx-padding: 20;">
+                <children>
+                    <!-- Cognition Logo -->
+                    <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="136.0" style="-fx-background-color: #fff; -fx-padding: 20; -fx-background-radius: 20 0 0 20;">
+                        <children>
+                            <!-- Logo Image -->
+                            <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../img/logo.png" />
+                                </image>
+                            </ImageView>
+                            <!-- Logo Text-->
+                            <Text fx:id="dashboardLogo" fill="#5c5353" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo" text="Cognition">
+                                <HBox.margin>
+                                    <Insets left="5.0" />
+                                </HBox.margin>
+                                <font>
+                                    <Font name="System Bold" size="13.0" />
+                                </font>
+                            </Text>
+                        </children>
+                    </HBox>
+                    <!-- Navbar links -->
+                    <HBox alignment="CENTER" prefHeight="73.0" prefWidth="490.0" style="-fx-background-color: #fff;">
+                        <children>
+                            <!-- Go to dashboard view (Dashboard.fxml) -->
+                            <Button fx:id="goHome" mnemonicParsing="false" onAction="#handleDashboard" styleClass="nav_link" text="Home" />
+                            <!-- Go to my quizzes view (MyQuizzes.fxml) -->
+                            <Button mnemonicParsing="false" onAction="#handleMyQuizzes" styleClass="nav_link" text="My quizzes">
+                                <graphic>
+                                    <FontAwesomeIconView fill="#626262" glyphName="BOOKMARK" />
+                                </graphic>
+                            </Button>
+                            <!-- Go to create quizzes view  (Quiz.fxml)-->
+                            <Button fx:id="createQuizButton" mnemonicParsing="false" onAction="#handleCreateQuiz" styleClass="nav_link" text="Create quiz">
+                                <graphic>
+                                    <FontAwesomeIconView fill="#626262" glyphName="PLUS" />
+                                </graphic>
+                            </Button>
+
+
+                        </children>
+                    </HBox>
+                    <!-- Logout / go to login & register view (Login.fxml)-->
+                    <HBox alignment="CENTER" prefHeight="67.0" prefWidth="188.0" style="-fx-background-color: #fff; -fx-padding: 15px; -fx-background-radius: 0 20 20 0;">
+                        <Button fx:id="signOutButton" mnemonicParsing="false" onAction="#handleLogout" styleClass="nav_link" text="Sign out">
+                            <graphic>
+                                <FontAwesomeIconView fill="#626262" glyphName="SIGN_OUT" />
+                            </graphic></Button>
+                    </HBox>
+                </children>
+            </HBox>
+            <!-- End of navbar component -->
+        </children>
+            <!-- Title of page -->
+           <Text fx:id="heading" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Create new quiz" wrappingWidth="469.8765563964844">
+               <font>
+                   <Font name="Avenir Book" size="38.0" />
+               </font>
+           </Text>
+        <!-- Container for main content of the view -->
+        <HBox alignment="CENTER" prefHeight="674.0" prefWidth="922.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <VBox prefHeight="508.0" prefWidth="922.0" styleClass="container">
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <HBox.margin>
+                    <Insets top="20.0" />
+                </HBox.margin>
+                <!-- Title and description container-->
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                      <VBox prefHeight="374.0" prefWidth="278.0">
+                          <!-- Title container-->
+                          <VBox>
+                              <!-- Title textfield-->
+                              <TextField fx:id="name" maxWidth="-Infinity" prefHeight="27.0" prefWidth="400.0" style="-fx-border-color: ffffff; -fx-background-color: ffffff;">
+                                  <VBox.margin>
+                                      <Insets left="75.0" />
+                                  </VBox.margin>
+                           <font>
+                              <Font name="Avenir Book" size="18.0" />
+                           </font>
+                              </TextField>
+                        <Line endX="300.0" startX="-100.0" stroke="#8a8a8a" strokeWidth="2.0">
+                           <VBox.margin>
+                              <Insets left="75.0" />
+                           </VBox.margin>
+                        </Line>
+                              <!-- Title label-->
+                              <Label prefWidth="200.0" text="TITLE">
+                                  <VBox.margin>
+                                      <Insets left="75.0" />
+                                  </VBox.margin>
+                                  <font>
+                                      <Font name="Avenir Book" size="19.0" />
+                                  </font>
+                              </Label>
+                          </VBox>
+                          <!-- Description container-->
+                          <VBox prefHeight="147.0" prefWidth="655.0">
+                              <!-- Descrition input -->
+                              <TextField fx:id="description" maxWidth="-Infinity" prefHeight="25.0" prefWidth="400.0" style="-fx-background-color: transparent;">
+                                  <VBox.margin>
+                                      <Insets left="75.0" />
+                                  </VBox.margin>
+                           <font>
+                              <Font name="Avenir Book" size="18.0" />
+                           </font>
+                              </TextField>
+                        <Line endX="300.0" startX="-100.0" stroke="#8a8a8a" strokeWidth="2.0">
+                           <VBox.margin>
+                              <Insets left="75.0" />
+                           </VBox.margin>
+                        </Line>
+                              <!-- Decription label-->
+                              <Label prefHeight="20.0" prefWidth="155.0" text="DESCRIPTION">
+                                  <font>
+                                      <Font name="Avenir Book" size="19.0" />
+                                  </font>
+                           <VBox.margin>
+                              <Insets left="75.0" />
+                           </VBox.margin>
+                              </Label>
+                          </VBox>
+                          <HBox prefHeight="43.0" prefWidth="304.0" />
+                      </VBox>
+                   <!-- Feedback container-->
+                  <VBox prefHeight="157.0" prefWidth="447.0">
+                     <children>
+                         <!-- Feedback label (Here the feedback of the view gets displayed)-->
+                              <Label fx:id="feedback" alignment="CENTER" prefHeight="148.0" prefWidth="454.0" textAlignment="CENTER">
+                           <font>
+                              <Font name="Avenir Book" size="14.0" />
+                           </font></Label>
+                     </children></VBox>
+               </children>
+            </HBox>
+                <VBox prefHeight="654.0" prefWidth="815.0">
+                    <HBox prefHeight="100.0" prefWidth="200.0">
+                        <VBox.margin>
+                            <Insets />
+                        </VBox.margin>
+                  <children>
+                          <Text fx:id="flashcardsText" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="FLASHCARDS" wrappingWidth="266.388671875">
+                              <font>
+                                  <Font name="Avenir Book" size="24.0" />
+                              </font>
+                        <HBox.margin>
+                           <Insets left="75.0" />
+                        </HBox.margin>
+                          </Text>
+                      <!-- Add flashcard button-->
+                            <Button fx:id="addFlashcardButton" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#addFlashcardNode" prefHeight="35.0" prefWidth="172.0" style="-fx-background-color: FCB751; -fx-background-radius: 6;" text="Add another flashcard">
+                                <font>
+                                    <Font name="Verdana Bold" size="12.0" />
+                                </font>
+                        <HBox.margin>
+                           <Insets bottom="5.0" left="200.0" />
+                        </HBox.margin>
+                            </Button>
+                            <!-- Button that saves the whole quiz-->
+                            <Button fx:id="storeQuizButton" mnemonicParsing="false" onAction="#handleStoreQuiz" prefHeight="35.0" style="-fx-background-color: FCB751; -fx-background-radius: 6;" text="Save quiz">
+                                <font>
+                                    <Font name="Verdana Bold" size="12.0" />
+                                </font>
+                        <HBox.margin>
+                           <Insets left="75.0" />
+                        </HBox.margin>
+                            </Button>
+                  </children>
+                    </HBox>
+                    <!-- Flashcard container (Flashcards are added to the container in QuizController) -->
+                    <ScrollPane fx:id="flashcardPane" maxWidth="-Infinity" prefHeight="510.0" prefWidth="795.0" style="-fx-background-color: FFF6EA; -fx-background-radius: 6;">
+                        <VBox.margin>
+                            <Insets left="75.0" />
+                        </VBox.margin>
+                    </ScrollPane>
+                </VBox>
+            </VBox>
+        </HBox>
+    </VBox>
+</AnchorPane>

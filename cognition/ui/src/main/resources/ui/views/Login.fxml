@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1024" maxWidth="1400" minHeight="400" minWidth="600" prefHeight="745.0" prefWidth="922.0" style="-fx-background-color: FCB751;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="pageId" alignment="CENTER" prefHeight="27.0" prefWidth="485.0" text="Login" visible="false" />
+    <!-- Main content pane (everything that is not background is contained in this AnchorPane)-->
+    <AnchorPane layoutX="205.0" layoutY="74.0" prefHeight="603.0" prefWidth="510.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);">
+        <!-- Feedback label -->
+        <Label fx:id="feedback" alignment="CENTER" layoutX="33.0" layoutY="480.0" prefHeight="19.0" prefWidth="437.0" textAlignment="CENTER" textFill="RED">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+        <!-- Login inputs -->
+        <!-- Username text field -->
+        <TextField fx:id="usernameInput" layoutX="71.0" layoutY="250.0" prefHeight="57.0" prefWidth="367.0" promptText="Username" style="-fx-border-radius: 6; -fx-border-color: FCB751; -fx-border-width: 2; -fx-background-color: FFFFFF;">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <!-- Password text field -->
+        <PasswordField fx:id="passwordInput" layoutX="70.0" layoutY="324.0" prefHeight="57.0" prefWidth="367.0" promptText="Password" style="-fx-background-color: FFFFFF; -fx-border-color: FCB751; -fx-border-radius: 6; -fx-border-width: 2;">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </PasswordField>
+        <!-- End of Login inputs -->
+
+        <!-- Login button (with correct data; switches view to dashboard) -->
+        <Button fx:id="loginButton" defaultButton="true" layoutX="71.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="61.0" prefWidth="367.0" style="-fx-background-color: F9AD3C; -fx-background-radius: 6; -fx-font-size: 21; -fx-font-family: Mulish; -fx-font-weight: 700;" text="Sign in" textFill="WHITE" />
+        <Label layoutX="161.0" layoutY="70.0" text="Cognition" textAlignment="CENTER" textFill="#5c5353">
+            <font>
+                <Font name="Mulish" size="72.0" />
+            </font>
+        </Label>
+        <ImageView layoutX="53.0" layoutY="60.0">
+            <Image url="@../../img/logo.png" />
+        </ImageView>
+        <Line endX="65.0" layoutX="223.0" layoutY="218.0" stroke="#f9ad3c" strokeWidth="5.0" />
+        <Line endX="312.0" layoutX="99.0" layoutY="501.0" stroke="#727272" strokeWidth="2.0" />
+
+        <!-- Switch view to Register.fxml -->
+        <Button fx:id="goToRegisterButton" layoutX="215.0" layoutY="514.0" mnemonicParsing="false" onAction="#goToRegister" style="-fx-background-color: null;" text="Create an account" textFill="#f9ad3c">
+            <font>
+                <Font size="21.0" />
+            </font>
+        </Button>
+        <Label layoutX="133.0" layoutY="522.0" text="New here?" textFill="#727272">
+            <font>
+                <Font size="21.0" />
+            </font>
+        </Label>
+        <Line endX="85.1925048828125" layoutX="300.0" layoutY="545.0" startX="-63.46856689453125" stroke="#f9ad3c" strokeWidth="0.8" />
+        <Label layoutX="179.0" layoutY="149.0" text="A flashcard app that promotes learning">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+    </AnchorPane>
+</AnchorPane>

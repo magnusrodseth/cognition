@@ -1,0 +1,16 @@
+@startuml
+
+DashboardController -> LoginController: handleLogout()
+note left
+Triggered by "Sign out" button
+end note
+DashboardController -> MyQuizzesController: handleMyQuizzes()
+note left
+Triggered by "My quizzes" button
+end note
+DashboardController -> QuizController: handleCreateQuiz()
+note left
+Triggered by "Create quiz" button
+end note
+
+@enduml

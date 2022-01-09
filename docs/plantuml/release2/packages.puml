@@ -1,0 +1,33 @@
+@startuml
+
+title Cognition - Module and package diagram
+
+node "User Interface (ui)" as ui_module {
+    package "ui" {
+        package "controllers" {
+        }
+    }
+}
+
+node "Core (core)" as core_module {
+    package "core" {
+    }
+
+    package "json" {
+    }
+
+    package "rest" {
+    }
+}
+
+node "Server (api)" as api_module {
+    package "api" {
+    }
+}
+
+
+
+ui_module->core_module
+api_module->core_module
+
+@enduml

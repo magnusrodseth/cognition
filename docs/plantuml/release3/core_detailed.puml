@@ -1,0 +1,68 @@
+@startuml
+'https://plantuml.com/es/class-diagram
+
+class Flashcard{
+-String uuid
+-String front
+-String answer
+
++isValidFront()
++isValidAnswer()
+
+
+}
+class Quiz{
++{static}final int MAX_DESCRIPTION_LENGTH
+-String uuid
+-String name
+-String description
+-List<Flashcard> flashcards
++{static}isValidName()
++{static}isValidDescription()
++addFlashcards()
++addFlashcard()
++removeFlashcard()
+}
+class User{
+-final List<Quiz> quizzes
+-String username
+-String password
++{static}isValidUsername()
++{static}isValidPassword()
++updateQuiz()
++addQuiz()
++removeQuiz()
+}
+class Tools{
++{static}capitalize()
++{static}createUuid()
++{static}isValidUuid()
+}
+
+class CognitionStorage{
+-final Gson gson
+-Path storagePath
++readUsers()
++create()
++read()
++update()
++delete()
++setStoragePath()
++isEmpty()
+}
+
+class CompactQuiz{
+- String uuid
+- String name
+}
+
+User ||-o{ Quiz
+Quiz ||-|{ Flashcard
+
+Tools <-- Quiz
+Tools <-- Flashcard
+
+CompactQuiz -> Tools
+
+CognitionStorage ..> User: <<Stores User objects in local storage>>
+@enduml
